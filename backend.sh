@@ -76,11 +76,11 @@ VALIDATE $? "Installing MySQL Client"
 mysql -h mysql.sdaws82s.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE_NAME
 VALIDATE $? "Setting up the transactions schema and tables"
 
-sudosystemctl daemon-reload &>>$LOG_FILE_NAME
+systemctl daemon-reload &>>$LOG_FILE_NAME
 VALIDATE $? "Daemon Reload"
 
-sudosystemctl enable backend &>>$LOG_FILE_NAME
+systemctl enable backend &>>$LOG_FILE_NAME
 VALIDATE $? "Enabling backend"
 
-sudosystemctl restart backend &>>$LOG_FILE_NAME
+systemctl restart backend &>>$LOG_FILE_NAME
 VALIDATE $? "Starting Backend"
